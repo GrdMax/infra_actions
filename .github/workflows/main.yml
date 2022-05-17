@@ -73,10 +73,9 @@ jobs:
           username: ${{ secrets.USER_S }}
           key: ${{ secrets.SSH_KEY_H }}
 #          passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем
-#          script: |
-#            # Выполняет pull образа с DockerHub
-#            sudo docker pull grdmax/infra_actions
-#            #остановка всех контейнеров
-#            sudo docker stop $(sudo docker ps -a -q)
-#            sudo docker run --rm -d -p 5000:5000 grdmax/infra_actions
-          script: whoami
+          script: |
+            # Выполняет pull образа с DockerHub
+            sudo docker pull grdmax/infra_actions:latest
+            #остановка всех контейнеров
+            sudo docker stop $(sudo docker ps -a -q)
+            sudo docker run --rm -d -p 5000:5000 grdmax/infra_actions:latest
